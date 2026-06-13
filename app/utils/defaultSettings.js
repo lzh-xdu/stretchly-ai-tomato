@@ -84,6 +84,8 @@ export default {
   longBreakManualFinish: false,
   requireManualDismiss: false,
   breakHealthMode: false,
+  breakBackgroundImage: false,
+  breakImageFolder: '',
   openAtLogin: false,
   _migratedOpenAtLogin: false
 }

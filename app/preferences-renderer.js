@@ -252,6 +252,20 @@ window.onload = async (e) => {
     }
   })
 
+  const imageFolderInput = document.querySelector('#imageFolderInput')
+  if (imageFolderInput) {
+    imageFolderInput.value = settings.breakImageFolder || ''
+    if (!eventsAttached) {
+      document.querySelector('#selectImageFolderBtn').onclick = async () => {
+        const folder = await window.electronApi.selectFolder()
+        if (folder) {
+          imageFolderInput.value = folder
+          window.settings.saveSettings('breakImageFolder', folder)
+        }
+      }
+    }
+  }
+
   setWindowHeight()
 
   document.querySelectorAll('.enabletype').forEach((element) => {

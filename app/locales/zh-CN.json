@@ -83,6 +83,8 @@
       "coffeeKisses": "咖啡之吻",
       "morningSwim": "沐浴晨光",
       "transparentMode": "启用半透明",
+      "backgroundImage": "启用背景图片",
+      "selectFolder": "选择文件夹",
       "sounds": "音效：",
       "enableSounds": "启用音效",
       "crystalGlass": "水晶玻璃",

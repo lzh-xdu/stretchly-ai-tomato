@@ -7,6 +7,20 @@ body {
   overflow: hidden;
 }
 
+.break-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.break-overlay.hidden {
+  display: none;
+}
+
 .breaks {
   align-items: center;
   box-sizing: border-box;
@@ -21,6 +35,8 @@ body {
   grid-template: 85vh 10vh / 100px auto 100px;
   justify-items: center;
   min-height: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 body.break-health-mode {

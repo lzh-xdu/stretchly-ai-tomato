@@ -7,6 +7,7 @@ import { EventEmitter } from 'node:events'
 import { readFile, writeFile, existsSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'path'
 import { resolveLocalImage } from './utils/imageResolver.js'
+import { getBackgroundImage } from './utils/backgroundImage.js'
 import { fileURLToPath } from 'url'
 import i18next from 'i18next'
 import Backend from 'i18next-fs-backend'
@@ -797,7 +798,8 @@ function startMicrobreak () {
     }
     return [idea, startTime, breakDuration, strictMode,
       postponable, postponableDurationPercent,
-      calculateBackgroundColor(settings.get('miniBreakColor')), danger, settings.get('breakHealthMode')]
+      calculateBackgroundColor(settings.get('miniBreakColor')), danger, settings.get('breakHealthMode'),
+      settings.get('breakBackgroundImage') ? getBackgroundImage(settings.get('breakImageFolder')) : null]
   })
 
   const contentDisplayId = displayManager.getContentDisplayId()
@@ -966,7 +968,8 @@ function startBreak () {
     }
     return [idea, startTime, breakDuration, strictMode,
       postponable, postponableDurationPercent,
-      calculateBackgroundColor(settings.get('mainColor')), danger, settings.get('breakHealthMode')]
+      calculateBackgroundColor(settings.get('mainColor')), danger, settings.get('breakHealthMode'),
+      settings.get('breakBackgroundImage') ? getBackgroundImage(settings.get('breakImageFolder')) : null]
   })
 
   const contentDisplayId = displayManager.getContentDisplayId()
@@ -1785,4 +1788,12 @@ ipcMain.handle('get-version', (event) => {
 ipcMain.handle('resolve-local-image', (event, filename) => {
   const imagesPath = join(app.getPath('userData'), 'images')
   return resolveLocalImage(imagesPath, filename)
+})
+
+ipcMain.handle('select-folder', async (event) => {
+  const result = await dialog.showOpenDialog({
+    properties: ['openDirectory']
+  })
+  if (result.canceled) return ''
+  return result.filePaths[0] || ''
 })

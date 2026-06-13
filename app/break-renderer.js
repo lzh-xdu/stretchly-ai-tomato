@@ -5,7 +5,7 @@ import './platform.js'
 
 window.onload = async (event) => {
   const [idea, started, duration, strictMode, postpone,
-    postponePercent, backgroundColor, danger, breakHealthMode] = await window.breaks.sendBreakData()
+    postponePercent, backgroundColor, danger, breakHealthMode, backgroundImage] = await window.breaks.sendBreakData()
 
   document.ondragover = event =>
     event.preventDefault()
@@ -16,6 +16,12 @@ window.onload = async (event) => {
   if (new URLSearchParams(window.location.search).get('blank') === '1') {
     document.body.style.backgroundColor = backgroundColor
     document.querySelector('.breaks').style.display = 'none'
+    if (backgroundImage) {
+      document.body.style.backgroundImage = `url('${backgroundImage}')`
+      document.body.style.backgroundSize = 'cover'
+      document.body.style.backgroundPosition = 'center'
+      document.querySelector('.break-overlay').classList.remove('hidden')
+    }
     await window.breaks.signalLoaded()
     return
   }
@@ -58,6 +64,12 @@ window.onload = async (event) => {
   const manualFinishElement = document.querySelector('#finish')
   document.body.classList.add(mainColor.substring(1))
   document.body.style.backgroundColor = backgroundColor
+  if (backgroundImage) {
+    document.body.style.backgroundImage = `url('${backgroundImage}')`
+    document.body.style.backgroundSize = 'cover'
+    document.body.style.backgroundPosition = 'center'
+    document.querySelector('.break-overlay').classList.remove('hidden')
+  }
 
   document.querySelectorAll('.tiptext').forEach(async tt => {
     const keyboardShortcut = await window.settings.get('endBreakShortcut')
