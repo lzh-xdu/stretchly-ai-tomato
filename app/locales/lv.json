@@ -207,14 +207,18 @@
       "fullscreen": "Pa visu ekrānu",
       "window": "Logā",
       "showBreaksIn": "Parādīt pātraukumus:",
-      "openAtLogin": "Ieslēgt Stretchly automātiski"
+      "openAtLogin": "Ieslēgt Stretchly automātiski",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "title": "Stretchly Iestatījumi"
   },
   "break": {
     "title": "Laiks pārtraukumam!",
     "skip": "Izlaist šo pārtraukumu",
-    "postpone": "Atlikt šo pārtraukumu"
+    "postpone": "Atlikt šo pārtraukumu",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "miniBreakIdeas": {
     "aaa": {

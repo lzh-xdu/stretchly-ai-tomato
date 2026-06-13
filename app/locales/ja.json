@@ -62,7 +62,8 @@
       "allScreens": "全てのモニターに休憩画面を表示する",
       "monitorDnd": "Do Not Disturbモードでも休憩画面を表示する",
       "language": "言語選択:",
-      "restoreDefaults": "デフォルト設定に戻す"
+      "restoreDefaults": "デフォルト設定に戻す",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "theme": {
       "ticToc": "チクタク",
@@ -109,6 +110,11 @@
     "title": "Stretchlyの設定"
   },
   "contributorPreferences": {
+    "0": "1番目のモニター",
+    "1": "2番目のモニター",
+    "2": "3番目のモニター",
+    "3": "4番目のモニター",
+    "4": "5番目のモニター",
     "newVersionNotification": "アプリの更新がある場合に通知する",
     "dark": "ダーク",
     "notificationsInfo": "システム通知は休憩前に準備時間を設けるために表示されます。",
@@ -125,13 +131,8 @@
     "showBreaksAsRegularWindowsTitle": "通常のウィンドウと同様に動作する:",
     "showBreaksAsRegularWindowsInfo": "有効時、休憩画面がフォーカス可能になり、常に最前面に表示されず、またタスクバーにも表示されるようになります。",
     "title": "コントリビュータ設定",
-    "0": "1番目のモニター",
-    "1": "2番目のモニター",
-    "2": "3番目のモニター",
-    "3": "4番目のモニター",
     "timeToBreakInTray": "休憩時間",
     "showTimeToBreakInTray": "メニューバーアイコンに次の休憩までの時間を表示する",
-    "4": "5番目のモニター",
     "notifications": "休憩の通知:",
     "customIdeas": "詳細設定:",
     "customIdeasInfo": "設定ファイルを編集することで詳細設定を行えます。(上級者向け)",
@@ -182,7 +183,10 @@
   "break": {
     "postpone": "休憩を延期する",
     "skip": "休憩をスキップする",
-    "title": "休憩の時間です！"
+    "title": "休憩の時間です！",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "process": {
     "newVersionAvailable": "アプリに更新があります！"

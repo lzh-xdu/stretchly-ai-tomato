@@ -227,7 +227,8 @@
       "openAtLogin": "Käivita Stretchly automaatselt sisselogimisel",
       "showIdeas": "Näita pauside ajal harjutuste soovitusi",
       "fullscreen": "Täisekraanil",
-      "showBreaksIn": "Pause näidatakse:"
+      "showBreaksIn": "Pause näidatakse:",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "nav": {
       "theme": "Kujundus",
@@ -238,6 +239,11 @@
     }
   },
   "contributorPreferences": {
+    "0": "Esimene monitor",
+    "1": "Teine monitor",
+    "2": "Kolmas monitor",
+    "3": "Neljas monitor",
+    "4": "Viies monitor",
     "breakWindowHeight": "Kõrgus:",
     "longBreakStartSound": "Esitage pausi lõpu heli ka suure pausi alguses",
     "customIdeasInfo": "Võimaldab kasutada kohandatud pausiideid, muutes konfiguratsioonifaili. (Kogenenud kasutajatele.)",
@@ -245,22 +251,18 @@
     "pauseAfter": "Paus pärast:",
     "customIdeas": "Kohandatud ideed:",
     "newVersion": "Uus versioon:",
-    "4": "Viies monitor",
     "screen": "Monitor pauside jaoks:",
     "showTrayIcon": "Kuva menüüriba ikoon",
     "title": "Kaasautori seaded",
     "appearance": "Kujundus:",
     "newVersionNotification": "Teavita kui uus versioon on saadaval",
-    "1": "Teine monitor",
     "welcomeWindow": "Tervitusaken:",
     "showCurrentTimeInBreaks": "Kuva pausiaknas praegune kohalik aeg",
     "dark": "Tume",
-    "2": "Kolmas monitor",
     "longBreaks": "Suured pausid:",
     "toShowTrayIcon": "Kuva menüüribal Stretchly ikoon",
     "naturalBreaksInfo": "Kui peamistes eelistustes on süsteemi passiivsuse jälgimine lubatud, saate määrata, mis aja möödudes pausid peatada.",
     "timeToBreakInTray": "Aeg paus teha",
-    "3": "Neljas monitor",
     "showWelcomeWindow": "Kuva tervitusaken järgmisel käivitamisel",
     "breakWindowSize": "Pausiakna suurus",
     "miniBreakStartSound": "Esitage pausi lõpu heli ka väikese pausi alguses",
@@ -289,7 +291,6 @@
     "primary": "Peamisel monitoril",
     "notificationsInfo": "Süsteemi märguanne kuvatakse enne pause, et saaksite selleks valmistuda.",
     "maxPostpones": "Maksimaalne edasilükkamiste arv:",
-    "0": "Esimene monitor",
     "cursor": "Järgne kursorile",
     "opacityInfo": "Milline peaks pausi teavitusaken olema?",
     "pauseUntilMorningInfo": "Määrake, millise kellaajani funktsioon \"Peata hommikuni\" peaks peatuma.",
@@ -503,7 +504,10 @@
   "break": {
     "skip": "Jäta see paus vahele",
     "title": "Aeg teha paus!",
-    "postpone": "Lükka see paus edasi"
+    "postpone": "Lükka see paus edasi",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "process": {
     "newVersionAvailable": "Uus versioon on saadaval!"

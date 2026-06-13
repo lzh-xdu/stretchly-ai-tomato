@@ -70,6 +70,11 @@
     "none_other": "{{count}}"
   },
   "contributorPreferences": {
+    "0": "Primeiro monitor",
+    "1": "Segundo monitor",
+    "2": "Terceiro monitor",
+    "3": "Quarto monitor",
+    "4": "Quinto monitor",
     "showBreaksAsRegularWindows": "Mostrar pausas como janelas comuns",
     "showBreaksAsRegularWindowsInfo": "Quando ativada, a janela de pausa se tornará focalizável, elas não estarão mais \"Sempre no topo\" e também aparecerão na barra de tarefas.",
     "showBreaksAsRegularWindowsTitle": "Atuar como uma janela comum:",
@@ -118,12 +123,7 @@
     "showOnMonitor": "Mostrar pausas ligado",
     "primary": "Monitor primário",
     "cursor": "Seguir cursor",
-    "0": "Primeiro monitor",
-    "2": "Terceiro monitor",
-    "4": "Quinto monitor",
     "currentTimeInBreaks": "Hora atual",
-    "3": "Quarto monitor",
-    "1": "Segundo monitor",
     "showCurrentTimeInBreaks": "Mostrar a hora local atual na janela de pausa",
     "timeToBreakInTray": "Tempo para pausar",
     "showTimeToBreakInTray": "Mostrar tempo para a próxima pausa no ícone da barra de menu",
@@ -202,7 +202,8 @@
       "fullscreen": "Ecrã Cheio",
       "window": "Janela",
       "showBreaksIn": "Mostrar as pausas em:",
-      "openAtLogin": "Iniciar Stretchly automaticamente quando fizer login"
+      "openAtLogin": "Iniciar Stretchly automaticamente quando fizer login",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "nav": {
       "heart": "Amo Stretchly",
@@ -216,7 +217,10 @@
   "break": {
     "title": "É hora de fazer uma pausa!",
     "skip": "Pular esta pausa",
-    "postpone": "Adiar esta pausa"
+    "postpone": "Adiar esta pausa",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "miniBreakIdeas": {
     "aaa": {

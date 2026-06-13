@@ -28,7 +28,10 @@
   "break": {
     "postpone": "Deze pauze uitstellen",
     "skip": "Deze pauze overslaan",
-    "title": "Tijd voor een pauze!"
+    "title": "Tijd voor een pauze!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Stretchly Instellingen",
@@ -49,7 +52,8 @@
       "monitorIdleTime": "Controleer inactieve tijd van het systeem (aftellen wordt gepauzeerd als het systeem inactief is).",
       "monitorDnd": "Toon pauzes in Niet Storen modus",
       "language": "Selecteer taal:",
-      "restoreDefaults": "Standaardinstellingen herstellen"
+      "restoreDefaults": "Standaardinstellingen herstellen",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Mini Pauzes:",

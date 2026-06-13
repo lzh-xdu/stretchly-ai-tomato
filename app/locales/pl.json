@@ -28,7 +28,10 @@
   "break": {
     "postpone": "Przełóż przerwę na później",
     "skip": "Pomiń przerwę",
-    "title": "Czas na przerwę!"
+    "title": "Czas na przerwę!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Ustawienia Stretchly",
@@ -49,7 +52,8 @@
       "monitorIdleTime": "Monitoruj nieaktywność systemu (odliczanie jest wstrzymane gdy brak aktywności).",
       "monitorDnd": "Pokaż przerwy nawet w trybie Nie przeszkadzać",
       "language": "Wybierz język:",
-      "restoreDefaults": "Przywróć domyślne"
+      "restoreDefaults": "Przywróć domyślne",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Mikroprzerwy:",

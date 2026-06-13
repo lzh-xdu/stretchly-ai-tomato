@@ -28,7 +28,10 @@
   "break": {
     "title": "Перерва!",
     "skip": "Пропустити перерву",
-    "postpone": "Відкласти"
+    "postpone": "Відкласти",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "theme": {
@@ -103,7 +106,8 @@
       "fullscreen": "На повний екран",
       "window": "Вікні",
       "showBreaksIn": "Показувати перерви у:",
-      "openAtLogin": "Запускати Stretchly при вході в систему"
+      "openAtLogin": "Запускати Stretchly при вході в систему",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "nav": {
       "heart": "Підтримати Stretchly",

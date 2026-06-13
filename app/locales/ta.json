@@ -28,7 +28,10 @@
   "break": {
     "postpone": "இந்த இடைவெளியை ஒத்திவைக்கவும்",
     "skip": "இந்த இடைவெளியைத் தவிர்க்கவும்",
-    "title": "ஓய்வு எடுக்க நேரம்!"
+    "title": "ஓய்வு எடுக்க நேரம்!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "நீட்சி விருப்பத்தேர்வுகள்",
@@ -49,7 +52,8 @@
       "monitorIdleTime": "கணினி செயலற்ற நேரத்தைக் கண்காணிக்கவும் (கணினி செயலற்றதாக இருந்தால் இடைவெளிகள் இடைநிறுத்தப்படுகின்றன).",
       "monitorDnd": "பயன்முறையில் கூட இடைவெளிகளைக் காட்டு",
       "language": "மொழியைத் தேர்ந்தெடுக்கவும்:",
-      "restoreDefaults": "இயல்புநிலைகளை மீட்டெடுங்கள்"
+      "restoreDefaults": "இயல்புநிலைகளை மீட்டெடுங்கள்",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "மினி இடைவெளிகள்:",

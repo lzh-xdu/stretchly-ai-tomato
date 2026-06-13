@@ -29,7 +29,10 @@
     "postpone": "延后此次休息",
     "skip": "跳过此次休息",
     "title": "该休息一下了！",
-    "finish": "完成本次休息"
+    "finish": "完成本次休息",
+    "breakIsOver": "休息已结束",
+    "breakIsOverHint": "按空格键或点击按钮继续",
+    "dismiss": "结束休息"
   },
   "preferences": {
     "title": "Stretchly 偏好设置",
@@ -50,7 +53,8 @@
       "monitorIdleTime": "监控系统的闲置时间（系统闲置时暂停计时）。",
       "monitorDnd": "即使处于「勿扰」模式，仍显示休息画面",
       "language": "选择语言：",
-      "restoreDefaults": "还原至默认值"
+      "restoreDefaults": "还原至默认值",
+      "requireManualDismiss": "休息计时结束后需手动关闭（点击或按空格键）"
     },
     "schedule": {
       "miniBreaks": "小憩：",

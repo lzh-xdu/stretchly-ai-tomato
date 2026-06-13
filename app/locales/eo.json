@@ -28,7 +28,10 @@
   "break": {
     "postpone": "Prokrasti ĉi tiun paŭzon",
     "skip": "Preterpasi ĉi tiun paŭzon",
-    "title": "Tempo por paŭzi!"
+    "title": "Tempo por paŭzi!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Agordoj de Stretchly",
@@ -49,7 +52,8 @@
       "monitorIdleTime": "Observi senokupan tempon (Paŭzigi paŭzojn se sistemo estas senokupa).",
       "monitorDnd": "Montri paŭzojn eĉ en senĝena reĝimo",
       "language": "Elekti lingvon:",
-      "restoreDefaults": "Restaŭri la defaŭltojn"
+      "restoreDefaults": "Restaŭri la defaŭltojn",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Paŭzetoj:",

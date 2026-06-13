@@ -342,8 +342,13 @@ async function initialize (isAppStart = true) {
     breakPlanner.on('startBreakNotification', () => { startBreakNotification() })
     breakPlanner.on('startMicrobreak', () => { startMicrobreak() })
     breakPlanner.on('finishMicrobreak', (shouldPlaySound, shouldPlanNext) => {
+      log.info(`Stretchly: finishMicrobreak event (requireManualDismiss: ${settings.get('requireManualDismiss')}, miniBreakManualFinish: ${settings.get('miniBreakManualFinish')})`)
+      if (settings.get('requireManualDismiss')) {
+        enterMiniBreakManualContinuation(shouldPlaySound, 'dismiss')
+        return
+      }
       if (settings.get('miniBreakManualFinish')) {
-        enterMiniBreakManualContinuation(shouldPlaySound)
+        enterMiniBreakManualContinuation(shouldPlaySound, 'continue')
         return
       }
       decreaseDanger(1)
@@ -351,8 +356,13 @@ async function initialize (isAppStart = true) {
     })
     breakPlanner.on('startBreak', () => { startBreak() })
     breakPlanner.on('finishBreak', (shouldPlaySound, shouldPlanNext) => {
+      log.info(`Stretchly: finishBreak event (requireManualDismiss: ${settings.get('requireManualDismiss')}, longBreakManualFinish: ${settings.get('longBreakManualFinish')})`)
+      if (settings.get('requireManualDismiss')) {
+        enterLongBreakManualContinuation(shouldPlaySound, 'dismiss')
+        return
+      }
       if (settings.get('longBreakManualFinish')) {
-        enterLongBreakManualContinuation(shouldPlaySound)
+        enterLongBreakManualContinuation(shouldPlaySound, 'continue')
         return
       }
       decreaseDanger(2)
@@ -770,6 +780,9 @@ function startMicrobreak () {
         log.info('Stretchly: end break shortcut pressed during Mini break')
         const passedPercent = (Date.now() - startTime) / breakDuration * 100
         if (passedPercent >= 100) {
+          if (settings.get('requireManualDismiss') || settings.get('miniBreakManualFinish')) {
+            return
+          }
           decreaseDanger(1)
           finishMicrobreak(false)
           return
@@ -936,6 +949,9 @@ function startBreak () {
         log.info('Stretchly: end break shortcut pressed during Long break')
         const passedPercent = (Date.now() - startTime) / breakDuration * 100
         if (passedPercent >= 100) {
+          if (settings.get('requireManualDismiss') || settings.get('longBreakManualFinish')) {
+            return
+          }
           decreaseDanger(2)
           finishBreak(false)
           return
@@ -1098,10 +1114,10 @@ function decreaseDanger (amount) {
   log.info(`Stretchly: danger decreased to ${danger}`)
 }
 
-function enterManualAwaitPhase (type, shouldPlaySound) {
+function enterManualAwaitPhase (type, shouldPlaySound, mode = 'continue') {
   const isMini = type === 'mini'
   const manualSettingKey = isMini ? 'miniBreakManualFinish' : 'longBreakManualFinish'
-  if (!settings.get(manualSettingKey)) return
+  if (mode !== 'dismiss' && !settings.get(manualSettingKey)) return
   if (shouldPlaySound && !settings.get('silentNotifications')) {
     const audioKey = isMini ? 'miniBreakAudio' : 'longBreakAudio'
     processWin.webContents.send('play-sound', settings.get(audioKey), settings.get('volume'))
@@ -1110,15 +1126,15 @@ function enterManualAwaitPhase (type, shouldPlaySound) {
   if (wins) {
     wins.forEach(w => {
       if (w && !w.isDestroyed()) {
-        w.webContents.send('enter-manual-await', isMini ? 'microbreak' : 'break')
+        w.webContents.send('enter-manual-await', isMini ? 'microbreak' : 'break', mode)
       }
     })
   }
-  log.info('Stretchly: entering manual finish phase (' + (isMini ? 'Mini' : 'Long') + ' break)')
+  log.info('Stretchly: entering manual finish phase (' + (isMini ? 'Mini' : 'Long') + ' break, mode: ' + mode + ')')
 }
 
-const enterMiniBreakManualContinuation = (shouldPlaySound) => enterManualAwaitPhase('mini', shouldPlaySound)
-const enterLongBreakManualContinuation = (shouldPlaySound) => enterManualAwaitPhase('long', shouldPlaySound)
+const enterMiniBreakManualContinuation = (shouldPlaySound, mode = 'continue') => enterManualAwaitPhase('mini', shouldPlaySound, mode)
+const enterLongBreakManualContinuation = (shouldPlaySound, mode = 'continue') => enterManualAwaitPhase('long', shouldPlaySound, mode)
 
 function finishMicrobreak (shouldPlaySound = true, shouldPlanNext = true) {
   microbreakWins = breakComplete(shouldPlaySound, microbreakWins, 'mini')

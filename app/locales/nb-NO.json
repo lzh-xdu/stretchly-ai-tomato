@@ -148,7 +148,8 @@
       "fullscreen": "Fullskjerm",
       "window": "Vindu",
       "showBreaksIn": "Viser pauser i:",
-      "openAtLogin": "Start Stretchly automatisk ved innlogging"
+      "openAtLogin": "Start Stretchly automatisk ved innlogging",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "nav": {
       "heart": "Elsker Stretchly",
@@ -183,7 +184,10 @@
   "break": {
     "title": "På tide med en pause!",
     "skip": "Hopp over denne pausen",
-    "postpone": "Utsett denne pausen"
+    "postpone": "Utsett denne pausen",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "main": {
     "syncPreferences": "Synkroniseringsinnstillinger",

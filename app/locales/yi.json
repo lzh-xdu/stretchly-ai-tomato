@@ -10,7 +10,8 @@
     "settings": {
       "language": "שפּראַך קלייבן:",
       "window": "פֿענצטער",
-      "fullscreen": "אויף די גאַנצע פאַרשטעלן"
+      "fullscreen": "אויף די גאַנצע פאַרשטעלן",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "title": "סטרעטשלי־אָפּציעס",
     "schedule": {
@@ -101,7 +102,10 @@
     "sounds": "סאָונדס:"
   },
   "break": {
-    "title": "דאָס איז אַ ברעכן־צייט!"
+    "title": "דאָס איז אַ ברעכן־צייט!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "welcome": {
     "title": "ברוכים־הבאים צו סטרעטשלי"

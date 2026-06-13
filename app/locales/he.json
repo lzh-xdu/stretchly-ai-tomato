@@ -29,7 +29,8 @@
       "showIdeas": "הצגת הצעות לתרגילים בזמן ההפסקות",
       "fullscreen": "על כל המסך",
       "window": "בתוך חלון",
-      "openAtLogin": "הפעלת Stretchly באופן אוטומטי בעת הכניסה"
+      "openAtLogin": "הפעלת Stretchly באופן אוטומטי בעת הכניסה",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "nav": {
       "heart": "תמיכה ב־Stretchly",
@@ -92,7 +93,10 @@
     "title": "זמן לקחת הפסקה!",
     "skip": "דילוג על הפסקה זו",
     "postpone": "דחיית הפסקה זו",
-    "finish": "סיום ההפסקה הזאת"
+    "finish": "סיום ההפסקה הזאת",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "main": {
     "syncPreferences": "העדפות סנכרון",

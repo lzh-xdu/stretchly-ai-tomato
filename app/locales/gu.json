@@ -28,7 +28,10 @@
   "break": {
     "postpone": "આ વિરામ મુલતવી રાખો",
     "skip": "આ વિરામ જવા દયો",
-    "title": "વિરામ લેવાનો સમય!"
+    "title": "વિરામ લેવાનો સમય!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "સ્ટ્રેચલી પસંદગીઓ",
@@ -49,7 +52,8 @@
       "monitorIdleTime": "નિષ્ક્રિય સિસ્ટમ સમયનું નિરીક્ષણ કરો (સિસ્ટમ નિષ્ક્રિય હોય તો વિરામ થોભાવવામાં આવે છે)",
       "monitorDnd": "ખલેલ પાડશો નહીં પ્રકારમાં પણ વિરામ બતાવો",
       "language": "ભાષા પસંદ કરો:",
-      "restoreDefaults": "મૂળભૂત અવસ્થામાં પૂર્વવત કરો"
+      "restoreDefaults": "મૂળભૂત અવસ્થામાં પૂર્વવત કરો",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "લઘુ વિરામો:",

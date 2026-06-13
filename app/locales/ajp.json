@@ -104,7 +104,8 @@
       "monitorIdleTime": "مراقبة وقت خمول النظام (الإستراحات تتوقف خلال وقت الخمول).",
       "monitorDnd": "إظهار الإستراحات حتى خلال وضع عدم الإزعاج",
       "language": "إختَر لغة:",
-      "restoreDefaults": "إستعادة الوضع الإفتراضي"
+      "restoreDefaults": "إستعادة الوضع الإفتراضي",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     }
   },
   "contributorPreferences": {
@@ -205,7 +206,10 @@
   "break": {
     "postpone": "تأجيل الإستراحة",
     "skip": "تخطّي الإستراحة",
-    "title": "حان الوقت لأخذ إستراحة!"
+    "title": "حان الوقت لأخذ إستراحة!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "process": {
     "newVersionAvailable": "نسخة جديدة متاحة!"

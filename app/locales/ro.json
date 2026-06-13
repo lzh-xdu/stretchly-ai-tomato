@@ -29,7 +29,10 @@
     "title": "Este timpul să iei o pauză!",
     "skip": "Sari peste această pauză",
     "postpone": "Amână această pauză",
-    "finish": "Finalizează această pauză"
+    "finish": "Finalizează această pauză",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "theme": {
@@ -92,7 +95,8 @@
       "language": "Selectează limba:",
       "restoreDefaults": "Restabiliți setările de bază",
       "showIdeas": "Afișați sfaturi de exerciții în timpul pauzelor",
-      "monitorDnd": "Afișează pauzele chiar și în modul Nu deranja"
+      "monitorDnd": "Afișează pauzele chiar și în modul Nu deranja",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Pauze scurte:",
@@ -125,6 +129,11 @@
     "title": "Bun venit la Stretchly"
   },
   "contributorPreferences": {
+    "0": "Primul monitor",
+    "1": "Al doilea monitor",
+    "2": "Al treilea monitor",
+    "3": "Al patrulea monitor",
+    "4": "Al cincilea monitor",
     "title": "Preferințele colaboratorilor",
     "notifications": "Notificări pentru pauze:",
     "newVersionNotification": "Notificați când noua versiune este disponibilă",
@@ -142,11 +151,6 @@
     "showBreaksAsRegularWindowsTitle": "Acționează ca o fereastră obișnuită:",
     "showBreaksAsRegularWindows": "Afișați pauzele ca ferestre obișnuite",
     "showBreaksAsRegularWindowsInfo": "Când sunt activate, ferestrele de pauză vor deveni focalizate, nu vor mai fi „Întotdeauna pe partea de sus” și vor apărea și în bara de activități.",
-    "0": "Primul monitor",
-    "1": "Al doilea monitor",
-    "2": "Al treilea monitor",
-    "3": "Al patrulea monitor",
-    "4": "Al cincilea monitor",
     "screen": "Monitorizare pentru pauze:",
     "screenInfo": "Când afișarea pauzelor pe toate monitoarele este dezactivată, puteți alege pe care doriți să afișați pauzele.",
     "showOnMonitor": "Arată pauzele pe",

@@ -82,6 +82,7 @@ export default {
   hideStrictModePreferences: false,
   miniBreakManualFinish: false,
   longBreakManualFinish: false,
+  requireManualDismiss: false,
   breakHealthMode: false,
   openAtLogin: false,
   _migratedOpenAtLogin: false

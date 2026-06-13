@@ -28,7 +28,10 @@
   "break": {
     "postpone": "Adiar este descanso",
     "skip": "Saltar este descanso",
-    "title": "Tempo de acougar!"
+    "title": "Tempo de acougar!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Configuración de Stretchly",
@@ -49,7 +52,8 @@
       "monitorIdleTime": "Supervisar a inactividade do sistema (deter os descansos si o sistema está inactivo).",
       "monitorDnd": "Amosar descansos incluso no modo Sen molestias",
       "language": "Escoller idioma:",
-      "restoreDefaults": "Restituír opcións por defecto"
+      "restoreDefaults": "Restituír opcións por defecto",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Descansos breves:",

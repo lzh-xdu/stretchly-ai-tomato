@@ -51,7 +51,8 @@
       "fullscreen": "Цел екран",
       "window": "Прозорец",
       "showBreaksIn": "Прикажи ги паузите на:",
-      "openAtLogin": "Стартувај го Stretchly автоматски кога ќе се најавиш"
+      "openAtLogin": "Стартувај го Stretchly автоматски кога ќе се најавиш",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "nav": {
       "heart": "Засакај го Stretchly",
@@ -65,6 +66,9 @@
   "break": {
     "title": "Време е за пауза!",
     "skip": "Прескокнете ја оваа пауза",
-    "postpone": "Одложете ја оваа пауза"
+    "postpone": "Одложете ја оваа пауза",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   }
 }

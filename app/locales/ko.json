@@ -28,7 +28,10 @@
   "break": {
     "postpone": "이 휴식 연기",
     "skip": "이 휴식 건너뛰기",
-    "title": "휴식을 취할 시간입니다!"
+    "title": "휴식을 취할 시간입니다!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Stretchly 환경설정",
@@ -49,7 +52,8 @@
       "monitorIdleTime": "시스템 유휴 시간 모니터링 (시스템이 유휴 상태일 경우 휴식 일시 중지).",
       "monitorDnd": "방해금지 모드에서도 휴식 표시",
       "language": "언어 선택:",
-      "restoreDefaults": "기본값 복원"
+      "restoreDefaults": "기본값 복원",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "짧은 휴식:",

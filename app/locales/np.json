@@ -27,7 +27,10 @@
   "break": {
     "postpone": "यस ब्रेकलाई स्थगित गर्नुहोस् ।",
     "skip": "यो ब्रेक छोड्नुहोस् ।",
-    "title": "ब्रेक लिन समय भयो ।"
+    "title": "ब्रेक लिन समय भयो ।",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Stretchly प्राथमिकताहरू",
@@ -48,7 +51,8 @@
       "monitorIdleTime": "प्रणाली निष्क्रिय समय मोनिटर गर्नुहोस् (ब्रेकहरू रोकिन्छ यदि प्रणाली निष्क्रिय छ भने) ।",
       "monitorDnd": "डु नट डिस्टर्ब मोडमा पनि ब्रेकहरू देखाउनुहोस् ।",
       "language": "भाषा छनोट गर्नुस:",
-      "restoreDefaults": "पहिलाकै अवस्थामा रूपान्तरण गर्नुहोस् ।"
+      "restoreDefaults": "पहिलाकै अवस्थामा रूपान्तरण गर्नुहोस् ।",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "छोटो ब्रेक ।",

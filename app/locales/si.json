@@ -28,7 +28,10 @@
   "break": {
     "postpone": "මෙම විවේකය කල් දමන්න",
     "skip": "මෙම විවේකය මඟ හරින්න",
-    "title": "විවේකයක් ගන්න වෙලාව!"
+    "title": "විවේකයක් ගන්න වෙලාව!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Stretchly මනාපයන්",
@@ -49,7 +52,8 @@
       "restoreDefaults": "පෙරනිමි යථා තත්වයට පත් කරන්න",
       "allScreens": "සියලු මොනිටර මත විරාම පෙන්වයි",
       "monitorIdleTime": "පද්ධතිය අක්රීය කාලය අධීක්ෂණය කරන්න (පද්ධතිය අක්රීය නම් විවේක නතර කරනු ලැබේ).",
-      "window": "කවුළුව"
+      "window": "කවුළුව",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "කුඩා විවේක:",

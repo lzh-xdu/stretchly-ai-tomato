@@ -32,7 +32,7 @@ function exposeBreaks (type) {
     finishBreak: (manualAwaiting) => ipcRenderer.send(`finish-${type}-break`, false, manualAwaiting),
     postponeBreak: () => ipcRenderer.send(`postpone-${type}-break`),
     signalLoaded: () => ipcRenderer.send(`${type}-break-loaded`),
-    onEnterManualAwait: (callback) => ipcRenderer.on('enter-manual-await', (_e, which) => callback(which)),
+    onEnterManualAwait: (callback) => ipcRenderer.on('enter-manual-await', (_e, which, mode) => callback(which, mode)),
     sanitizeIdea: (value) => sanitizeIdea(value)
   })
 }

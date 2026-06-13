@@ -28,7 +28,10 @@
   "break": {
     "postpone": "Lykkää tätä taukoa",
     "skip": "Jätä tämä tauko välistä",
-    "title": "Aika pitää tauko!"
+    "title": "Aika pitää tauko!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Stretchly asetukset",
@@ -49,7 +52,8 @@
       "monitorIdleTime": "Seuraa järjestelmän käyttöä (tauot pysäytetään, jos järjestelmää ei käytetä).",
       "monitorDnd": "Näytä tauot myös Älä häiritse tilassa",
       "language": "Valitse kieli:",
-      "restoreDefaults": "Palauta oletusasetukset"
+      "restoreDefaults": "Palauta oletusasetukset",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Minitauot:",
@@ -114,6 +118,11 @@
     }
   },
   "contributorPreferences": {
+    "0": "Ensimmäinen näyttö",
+    "1": "Toinen näyttö",
+    "2": "Kolmas näyttö",
+    "3": "Neljäs näyttö",
+    "4": "Viides näyttö",
     "title": "Tukijan asetukset",
     "notifications": "Taukoilmoitukset:",
     "notificationsInfo": "Järjestelmäimoitus, joka näytetään ennen taukoa, jotta voit valmistautua siihen.",
@@ -154,11 +163,6 @@
     "light": "Vaalea",
     "dark": "Tumma",
     "system": "Järjestelmä",
-    "0": "Ensimmäinen näyttö",
-    "1": "Toinen näyttö",
-    "2": "Kolmas näyttö",
-    "3": "Neljäs näyttö",
-    "4": "Viides näyttö",
     "timeToBreakInTray": "Tauon paikka",
     "showBreaksAsRegularWindows": "Näytä tauko ikkunat perus ikkunoina",
     "cursor": "Seuraa hiirtä",

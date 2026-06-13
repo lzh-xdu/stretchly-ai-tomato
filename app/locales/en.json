@@ -29,7 +29,10 @@
     "postpone": "Postpone this break",
     "skip": "Skip this break",
     "title": "Time to take a break!",
-    "finish": "Finish this break"
+    "finish": "Finish this break",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Stretchly Preferences",
@@ -49,6 +52,7 @@
       "allScreens": "Shows breaks on all monitors",
       "monitorIdleTime": "Monitor system idle time (breaks are paused if system is idle).",
       "monitorDnd": "Show breaks even in Do Not Disturb mode",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends",
       "language": "Select language:",
       "restoreDefaults": "Restore defaults"
     },

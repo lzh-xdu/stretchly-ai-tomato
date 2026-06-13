@@ -29,7 +29,10 @@
     "postpone": "Diese Pause aufschieben",
     "skip": "Diese Pause überspringen",
     "title": "Zeit für eine Pause!",
-    "finish": "Beende diese Pause"
+    "finish": "Beende diese Pause",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Stretchly-Einstellungen",
@@ -50,7 +53,8 @@
       "monitorIdleTime": "Abwesenheit vom Gerät berücksichtigen (Zeit, wenn das System inaktiv ist, wird nicht mitgezählt).",
       "monitorDnd": "Pausen auch im Modus \"Nicht stören\" anzeigen",
       "language": "Sprache auswählen:",
-      "restoreDefaults": "Standardeinstellungen wiederherstellen"
+      "restoreDefaults": "Standardeinstellungen wiederherstellen",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Mini-Pausen:",

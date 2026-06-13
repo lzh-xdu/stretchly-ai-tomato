@@ -28,7 +28,10 @@
   "break": {
     "postpone": "Hoãn giải lao",
     "title": "Đến lúc phải giải lao rồi!",
-    "skip": "Bỏ qua giải lao"
+    "skip": "Bỏ qua giải lao",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "nav": {
@@ -48,7 +51,8 @@
       "monitorDnd": "Hiển thị Giải lao ngay cả trong chế độ Không làm phiền",
       "language": "Lựa chọn ngôn ngữ:",
       "restoreDefaults": "Khôi phục mặc định",
-      "window": "Cửa sổ"
+      "window": "Cửa sổ",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "enableMiniBreaks": "Kích hoạt Giải lao ngắn",
@@ -113,15 +117,15 @@
     }
   },
   "contributorPreferences": {
-    "breakWindowWidth": "Chiều rộng:",
-    "system": "Hệ thống",
-    "beforeLongBreak": "Khoảng giải lao dài:",
     "0": "Màn hình ưu tiên",
     "1": "Màn hình thứ hai",
     "2": "Màn hình thứ ba",
-    "4": "Màn hình thứ năm",
-    "title": "Tuỳ chọn công tác viên",
     "3": "Màn hình thứ tư",
+    "4": "Màn hình thứ năm",
+    "breakWindowWidth": "Chiều rộng:",
+    "system": "Hệ thống",
+    "beforeLongBreak": "Khoảng giải lao dài:",
+    "title": "Tuỳ chọn công tác viên",
     "notificationsInfo": "Thông báo hệ thống hiển thị trước khoảng giải lao để bạn chuẩn bị cho nó.",
     "notifications": "Thông báo khoảng giải lao:",
     "beforeMiniBreak": "Khoảng giải lao ngắn:",

@@ -28,7 +28,10 @@
   "break": {
     "title": "Mola zamanı!",
     "skip": "Bu molayı geç",
-    "postpone": "Bu molayı ertele"
+    "postpone": "Bu molayı ertele",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "theme": {
@@ -73,7 +76,8 @@
       "language": "Dili seç:",
       "restoreDefaults": "Varsayılanı geri yükle",
       "monitorDnd": "Rahatsız Etme modundayken de molaları göster",
-      "monitorIdleTime": "Sistemin boşta olduğu zamanı gözlemle (sistem boşta iken molalar durdurulur)."
+      "monitorIdleTime": "Sistemin boşta olduğu zamanı gözlemle (sistem boşta iken molalar durdurulur).",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "nav": {
       "heart": "Stretchly'i Seviyor Musun",

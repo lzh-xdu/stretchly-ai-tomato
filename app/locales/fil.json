@@ -67,7 +67,8 @@
       "language": "Pumili ng wika:",
       "restoreDefaults": "Ibalik ang defaults",
       "showBreaksIn": "Ipakita ang pahinga sa:",
-      "window": "Bintana"
+      "window": "Bintana",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "heart": {
       "loveStretchly": "Mahal mo ang iyong Stretchly?",
@@ -460,6 +461,9 @@
   "break": {
     "skip": "Ipagpaliban ang pahingang ito",
     "postpone": "Itigil ang pahingang ito",
-    "title": "Oras na para magpahinga!"
+    "title": "Oras na para magpahinga!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   }
 }

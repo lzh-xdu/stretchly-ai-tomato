@@ -29,7 +29,10 @@
     "postpone": "Posponer este descanso",
     "skip": "Saltar este descanso",
     "title": "Hora de hacer un descanso!",
-    "finish": "Termina este descanso"
+    "finish": "Termina este descanso",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Configuración de Stretchly",
@@ -50,7 +53,8 @@
       "monitorIdleTime": "Supervise el tiempo de inactividad del sistema (los descansos se pausan si el sistema está inactivo).",
       "monitorDnd": "Mostrar pausas incluso en el modo No molestar",
       "language": "Seleccione el idioma:",
-      "restoreDefaults": "Restaurar valores predeterminados"
+      "restoreDefaults": "Restaurar valores predeterminados",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Descansos cortos:",

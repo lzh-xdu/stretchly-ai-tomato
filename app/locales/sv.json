@@ -29,7 +29,10 @@
     "postpone": "Skjut upp denna paus",
     "skip": "Hoppa över denna paus",
     "title": "Dags att ta en paus!",
-    "finish": "Avsluta denna paus"
+    "finish": "Avsluta denna paus",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Stretchly-inställningar",
@@ -50,7 +53,8 @@
       "monitorIdleTime": "Övervaka systemets vilotid (nedräkning pausas om systemet är inaktivt).",
       "monitorDnd": "Visa pauser även i läget Stör inte",
       "language": "Välj språk:",
-      "restoreDefaults": "Återställ till standardvärden"
+      "restoreDefaults": "Återställ till standardvärden",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Korta pauser:",

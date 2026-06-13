@@ -28,7 +28,11 @@
   "break": {
     "postpone": "延後此休息",
     "skip": "跳過此休息",
-    "title": "該休息囉！"
+    "title": "該休息囉！",
+    "finish": "完成此休息",
+    "breakIsOver": "休息已結束",
+    "breakIsOverHint": "按空白鍵或點擊按鈕繼續",
+    "dismiss": "結束休息"
   },
   "preferences": {
     "title": "Stretchly 偏好設定",
@@ -49,7 +53,8 @@
       "monitorIdleTime": "監控系統的閒置時間（系統閒置時暫停計時）。",
       "monitorDnd": "就算處於「請勿打擾」模式，仍顯示休息畫面",
       "language": "選擇語言：",
-      "restoreDefaults": "還原至預設值"
+      "restoreDefaults": "還原至預設值",
+      "requireManualDismiss": "休息計時結束後需手動關閉（點擊或按空白鍵）"
     },
     "schedule": {
       "miniBreaks": "小休息：",

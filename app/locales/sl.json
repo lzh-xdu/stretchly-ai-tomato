@@ -215,7 +215,8 @@
       "fullscreen": "Cel zaslon",
       "window": "Okno",
       "showBreaksIn": "Prikaz premora:",
-      "openAtLogin": "Zaženi Stretchly ob vpisu v sistem"
+      "openAtLogin": "Zaženi Stretchly ob vpisu v sistem",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "nav": {
       "heart": "Ljubim Stretchly",
@@ -230,7 +231,10 @@
     "title": "Čas za premor!",
     "skip": "Prekoči ta premor",
     "postpone": "Zamakni ta premor",
-    "finish": "Zaključi ta premor"
+    "finish": "Zaključi ta premor",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "miniBreakIdeas": {
     "aaa": {

@@ -125,3 +125,38 @@ body[dir=rtl] .breaks > :nth-child(2) > a img {
   position: absolute;
   right: 12px;
 }
+
+#break-over {
+  text-align: center;
+  padding: 2rem;
+}
+
+#break-over h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+#break-over p {
+  font-size: 1rem;
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+
+#break-over-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+#break-over.hidden {
+  display: none;
+}
+
+#break-over:not(.hidden) {
+  animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

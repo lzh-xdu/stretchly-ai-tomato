@@ -28,7 +28,10 @@
   "break": {
     "postpone": "Adiar esta pausa",
     "skip": "Pular esta pausa",
-    "title": "É hora de fazer uma pausa!"
+    "title": "É hora de fazer uma pausa!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Preferências do Stretchly",
@@ -49,7 +52,8 @@
       "monitorIdleTime": "Monitorar tempo ocioso do sistema (pausas são desabilitadas se o sistema estiver ocioso).",
       "monitorDnd": "Mostrar pausas mesmo quando no modo Não Perturbe",
       "language": "Selecionar idioma:",
-      "restoreDefaults": "Restaurar padrões"
+      "restoreDefaults": "Restaurar padrões",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Mini Pausas:",

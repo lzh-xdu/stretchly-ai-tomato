@@ -29,7 +29,8 @@
       "fullscreen": "تمام‌صفحه",
       "window": "پنجره‌ای",
       "showBreaksIn": "نمایش استراحت‌ها به‌شکل:",
-      "openAtLogin": "اجرای استرچلی به صورت خودکار در زمان ورود به سیستم"
+      "openAtLogin": "اجرای استرچلی به صورت خودکار در زمان ورود به سیستم",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "nav": {
       "heart": "ابراز علاقه به استرچلی",
@@ -88,7 +89,10 @@
     "title": "زمان استراحت است!",
     "skip": "از این استراحت بگذر",
     "postpone": "این استراحت را به تأخیر بینداز",
-    "finish": "خاتمه استراحت"
+    "finish": "خاتمه استراحت",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "main": {
     "syncPreferences": "همگام‌سازی تنظیمات",

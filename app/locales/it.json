@@ -28,7 +28,10 @@
   "break": {
     "postpone": "Rimanda questa pausa",
     "skip": "Salta questa pausa",
-    "title": "È ora di fare una pausa!"
+    "title": "È ora di fare una pausa!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Impostazioni Stretchly",
@@ -49,7 +52,8 @@
       "monitorIdleTime": "Monitoraggio del tempo di inattività del sistema (le pause vengono interrotte se il sistema è inattivo).",
       "monitorDnd": "Mostra le pause anche in modalità Non disturbare",
       "language": "Scegli lingua:",
-      "restoreDefaults": "Ripristina impostazioni"
+      "restoreDefaults": "Ripristina impostazioni",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Mini-Pausa:",

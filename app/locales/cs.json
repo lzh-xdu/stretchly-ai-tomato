@@ -30,7 +30,10 @@
     "postpone": "Odložit tuto přestávku",
     "skip": "Přeskočit tuto přestávku",
     "title": "Čas na přestávku!",
-    "finish": "Dokončit tuto přestávku"
+    "finish": "Dokončit tuto přestávku",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Nastavení Stretchly",
@@ -51,7 +54,8 @@
       "monitorIdleTime": "Sledovat neaktivitu (přestávky jsou během vaší neaktivity přerušeny).",
       "monitorDnd": "Zobrazovat přestávky i během režimu Nerušit",
       "language": "Vyberte jazyk:",
-      "restoreDefaults": "Obnovit původní nastavení"
+      "restoreDefaults": "Obnovit původní nastavení",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Mini přestávky:",

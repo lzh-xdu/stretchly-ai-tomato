@@ -29,7 +29,10 @@
     "postpone": "Szünet elhalasztása",
     "skip": "Szünet kihagyása",
     "title": "Itt az ideje szünetet tartani!",
-    "finish": "Szünet befejezése"
+    "finish": "Szünet befejezése",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Stretchly Beállítások",
@@ -50,7 +53,8 @@
       "monitorIdleTime": "Távollét figyelése (szünetek felfüggesztve, amíg a rendszer tétlen).",
       "monitorDnd": "Szünetek megjelenítése Ne Zavarjanak Módban is",
       "language": "Nyelv kiválasztása:",
-      "restoreDefaults": "Alapértelmezések visszaállítása"
+      "restoreDefaults": "Alapértelmezések visszaállítása",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Rövid szünetek:",
@@ -121,6 +125,11 @@
     }
   },
   "contributorPreferences": {
+    "0": "Első monitor",
+    "1": "Második monitor",
+    "2": "Harmadik monitor",
+    "3": "Negyedik monitor",
+    "4": "Ötödik monitor",
     "title": "Támogatói beállítások",
     "notifications": "Szünet értesítések:",
     "notificationsInfo": "A lent megadott időpontban értesítés fog érkezni, hogy felkészülhess a szünetekre.",
@@ -156,11 +165,6 @@
     "system": "Rendszer",
     "breakWindowWidth": "Szélesség:",
     "breakWindowHeight": "Magasság:",
-    "4": "Ötödik monitor",
-    "0": "Első monitor",
-    "1": "Második monitor",
-    "2": "Harmadik monitor",
-    "3": "Negyedik monitor",
     "showBreaksAsRegularWindowsTitle": "Ablak üzemmód:",
     "showTrayIcon": "Tálca ikon megjelenítése",
     "toShowTrayIcon": "Mutassa a Stretchly ikont a tálcán",

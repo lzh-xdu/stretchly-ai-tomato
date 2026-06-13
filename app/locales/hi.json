@@ -28,7 +28,10 @@
   "break": {
     "title": "ब्रेक लेने का समय आ गया है!",
     "skip": "इस ब्रेक को छोड़ें",
-    "postpone": "इस विराम को टाल दे"
+    "postpone": "इस विराम को टाल दे",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "theme": {
@@ -101,7 +104,8 @@
       "fullscreen": "फूल स्क्रीन",
       "window": "विन्डो",
       "showBreaksIn": "विराम दिखाने की अवधी:",
-      "openAtLogin": "लॉग इन करते समय स्ट्रेचली को प्रारंभ करें"
+      "openAtLogin": "लॉग इन करते समय स्ट्रेचली को प्रारंभ करें",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "nav": {
       "heart": "स्ट्रेचली पसंद",

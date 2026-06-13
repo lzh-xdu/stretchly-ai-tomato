@@ -28,7 +28,10 @@
   "break": {
     "postpone": "ਇਸ ਬਰੇਕ ਨੂੰ ਮੁਲਤਵੀ ਕਰੋ",
     "skip": "ਇਸ ਬਰੇਕ ਨੂੰ ਛੱਡੋ",
-    "title": "ਬਰੇਕ ਲੈਣ ਦਾ ਸਮਾਂ!"
+    "title": "ਬਰੇਕ ਲੈਣ ਦਾ ਸਮਾਂ!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "ਸਟ੍ਰੈਚਲੀ ਪਸੰਦ",
@@ -49,7 +52,8 @@
       "monitorIdleTime": "ਸਿਸਟਮ ਵਿਹਲੇ ਸਮੇਂ ਦੀ ਨਿਗਰਾਨੀ ਕਰੋ (ਜੇ ਸਿਸਟਮ ਵਿਹਲਾ ਹੈ ਤਾਂ ਬਰੇਕਾਂ ਨੂੰ ਰੋਕਿਆ ਜਾਂਦਾ ਹੈ).",
       "monitorDnd": "ਪਰੇਸ਼ਾਨ ਨਾ ਕਰੋ ਕਿਸਮ ਵਿੱਚ ਵੀ ਇੱਕ ਬਰੇਕ ਦਿਖਾਓ",
       "language": "ਭਾਸ਼ਾ ਚੁਣੋ:",
-      "restoreDefaults": "ਡਿਫੌਲਟਸ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰੋ"
+      "restoreDefaults": "ਡਿਫੌਲਟਸ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰੋ",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "ਛੋਟੇ ਬਰੇਕ:",

@@ -36,7 +36,8 @@
       "window": "Pestanya",
       "showBreaksIn": "Mostrar pauses en:",
       "language": "Seleccionar idioma:",
-      "restoreDefaults": "Restablir valors predeterminats"
+      "restoreDefaults": "Restablir valors predeterminats",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Mini Pauses:",
@@ -110,6 +111,9 @@
   },
   "contributorPreferences": {
     "0": "Primer monitor",
+    "1": "Segon monitor",
+    "2": "Tercer monitor",
+    "3": "Quart monitor",
     "4": "Cinquè monitor",
     "title": "Preferències de Contribuïdor",
     "beforeLongBreak": "Pausa Llarga:",
@@ -156,9 +160,6 @@
     "showTimeToBreakInTray": "Mostrar temps fins la següent pausa a la barra de menú",
     "currentTimeInBreaks": "Temps actual",
     "showCurrentTimeInBreaks": "Mostra l'hora local a la finestra de pausa",
-    "1": "Segon monitor",
-    "2": "Tercer monitor",
-    "3": "Quart monitor",
     "notifications": "Notificacions de pauses:",
     "notificationsInfo": "Les notificacions del sistema es mostren abans d'una pausa per ajudar-vos a preparar-vos-hi.",
     "beforeMiniBreak": "Mini Pausa:",
@@ -517,6 +518,9 @@
   "break": {
     "postpone": "Ajornar aquesta pausa",
     "skip": "Saltar aquesta pausa",
-    "title": "És temps d'una pausa!"
+    "title": "És temps d'una pausa!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   }
 }

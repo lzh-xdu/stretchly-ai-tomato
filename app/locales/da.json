@@ -28,7 +28,10 @@
   "break": {
     "postpone": "…vent en lille smule",
     "skip": "…nej, jeg vil bare fortsætte",
-    "title": "Tid til at holde en pause!"
+    "title": "Tid til at holde en pause!",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Stretchly Indstillinger",
@@ -49,7 +52,8 @@
       "monitorIdleTime": "Hold øje med om computeren bliver brugt eller ej (Nedtælling til pause stoppes)",
       "monitorDnd": "Vis pauser også selvom du er i 'Ikke forstyr tilstand'",
       "language": "Vælg sprog:",
-      "restoreDefaults": "Nulstil til standardindstillinger"
+      "restoreDefaults": "Nulstil til standardindstillinger",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Mini pauser:",
@@ -115,6 +119,11 @@
     }
   },
   "contributorPreferences": {
+    "0": "Første skærm",
+    "1": "Anden Skærm",
+    "2": "Tredje Skærm",
+    "3": "Fjerde skærm",
+    "4": "Femte skærm",
     "title": "Sponser præferencer",
     "notifications": "Pause notifikationer:",
     "notificationsInfo": "System notifikationer vises før pauser states for, at du kan forberede dig.",
@@ -148,11 +157,6 @@
     "light": "Lys",
     "dark": "Mørk",
     "system": "System",
-    "0": "Første skærm",
-    "3": "Fjerde skærm",
-    "2": "Tredje Skærm",
-    "1": "Anden Skærm",
-    "4": "Femte skærm",
     "opacityTheme": "Tema gennemsigtighed:",
     "showBreaksAsRegularWindowsInfo": "Hvis slået til vil Pause vinduer blive fokusserbare, de vil ikke være \"Altid øverst\" længere og de vil også vises i taskbaren.",
     "showBreaksAsRegularWindowsTitle": "Funger som almindeligt vindue:",

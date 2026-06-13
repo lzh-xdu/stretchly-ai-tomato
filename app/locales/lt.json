@@ -28,7 +28,10 @@
   "break": {
     "title": "Laikas pertraukėlei!",
     "skip": "Praleisti šią pertraukėlę",
-    "postpone": "Atidėti šią pertraukėlę"
+    "postpone": "Atidėti šią pertraukėlę",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "theme": {
@@ -92,7 +95,8 @@
       "window": "Langu",
       "showBreaksIn": "Rodo pertraukėles po:",
       "openAtLogin": "Automatiškai paleisti Strechly prisijungus prie kompiuterio",
-      "monitorIdleTime": "Stebėti sistemos neveikimo laiką (pertraukos pristabdomos, jei sistema neveikia)."
+      "monitorIdleTime": "Stebėti sistemos neveikimo laiką (pertraukos pristabdomos, jei sistema neveikia).",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "nav": {
       "heart": "Prisidėk / paremk",

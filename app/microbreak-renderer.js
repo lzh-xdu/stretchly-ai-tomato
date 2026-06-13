@@ -96,7 +96,7 @@ window.onload = async (event) => {
     }
   }, 100)
 
-  window.breaks.onEnterManualAwait(async (which) => {
+  window.breaks.onEnterManualAwait(async (which, mode) => {
     if (which !== 'microbreak' || manualAwaiting) return
     manualAwaiting = true
     progress.value = 0
@@ -104,6 +104,17 @@ window.onload = async (event) => {
     postponeElement.classList.add('hidden')
     closeElement.classList.add('hidden')
     manualFinishElement.classList.remove('hidden')
+    if (mode === 'dismiss') {
+      document.querySelector('.microbreak-idea').classList.add('hidden')
+      document.querySelector('#break-over').classList.remove('hidden')
+      manualFinishElement.querySelector('span').innerHTML = await window.i18next.t('break.dismiss')
+      document.addEventListener('keydown', (event) => {
+        if (event.code === 'Space' || event.key === ' ' || event.key === 'Enter') {
+          event.preventDefault()
+          manualFinishElement.click()
+        }
+      })
+    }
     progressTime.innerHTML = await window.utils.formatElapsedDuration(Date.now() - started, locale)
   })
 

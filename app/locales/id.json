@@ -71,7 +71,8 @@
       "fullscreen": "Layar penuh",
       "window": "Jendela",
       "showBreaksIn": "Munculkan istirahat di:",
-      "openAtLogin": "Mulai Stretchly otomatis saat log in"
+      "openAtLogin": "Mulai Stretchly otomatis saat log in",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "nav": {
       "heart": "Suka Stretchly",
@@ -207,7 +208,10 @@
   "break": {
     "title": "Saatnya istirahat!",
     "skip": "Lewati istirahat ini",
-    "postpone": "Tunda istirahat ini"
+    "postpone": "Tunda istirahat ini",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "miniBreakIdeas": {
     "aab": {

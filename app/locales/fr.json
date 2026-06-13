@@ -29,7 +29,10 @@
     "postpone": "Reporter cette pause",
     "skip": "Ignorer cette pause",
     "title": "Il est temps de faire une pause !",
-    "finish": "Terminer cette pause"
+    "finish": "Terminer cette pause",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Paramètres de Stretchly",
@@ -50,7 +53,8 @@
       "monitorIdleTime": "Surveiller les périodes d'inactivité (le décompte des pauses s'arrêtera si le système est inactif).",
       "monitorDnd": "Afficher les pauses même en mode « Ne pas déranger »",
       "language": "Choisissez votre langue :",
-      "restoreDefaults": "Réinitialiser"
+      "restoreDefaults": "Réinitialiser",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Petites pauses :",

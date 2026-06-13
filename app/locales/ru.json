@@ -29,7 +29,10 @@
     "postpone": "Отложить этот перерыв",
     "skip": "Пропустить этот перерыв",
     "title": "Время сделать перерыв!",
-    "finish": "Завершить этот перерыв"
+    "finish": "Завершить этот перерыв",
+    "breakIsOver": "Break is over",
+    "breakIsOverHint": "Press Space or click the button to continue",
+    "dismiss": "Dismiss"
   },
   "preferences": {
     "title": "Настройки Stretchly",
@@ -50,7 +53,8 @@
       "monitorIdleTime": "Следить за тем, когда система не используется (отсчёт времени до перерывов останавливается).",
       "monitorDnd": "Показывать перерывы даже в режиме «Не беспокоить»",
       "language": "Выбрать язык:",
-      "restoreDefaults": "Восстановить настройки по умолчанию"
+      "restoreDefaults": "Восстановить настройки по умолчанию",
+      "requireManualDismiss": "Wait for manual dismissal after break timer ends"
     },
     "schedule": {
       "miniBreaks": "Мини-перерывы:",
