@@ -8,6 +8,7 @@ import { readFile, writeFile, existsSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'path'
 import { resolveLocalImage } from './utils/imageResolver.js'
 import { getBackgroundImage } from './utils/backgroundImage.js'
+import { resolveLocalAudio } from './utils/audioResolver.js'
 import { fileURLToPath } from 'url'
 import i18next from 'i18next'
 import Backend from 'i18next-fs-backend'
@@ -102,9 +103,10 @@ if (insideWindowsPortable()) {
 
 log.initialize({ preload: true })
 
-// https://stackoverflow.com/questions/65859634/notification-from-electron-shows-electron-app-electron/65863174#65863174
-if (process.platform === 'win32') {
-  app.setAppUserModelId('Stretchly')
+// Match the appId the installer stamps onto the shortcut so notifications show Stretchly.
+// Skip the Store build (OS-assigned AUMID) and unpackaged dev runs.
+if (process.platform === 'win32' && !insideWindowsStore() && app.isPackaged) {
+  app.setAppUserModelId('net.hovancik.stretchly')
 }
 
 const global = {
@@ -184,6 +186,29 @@ if (!gotTheLock) {
         else pauseBreaks(1)
         break
 
+      case 'postpone':
+      case 'skip':
+      case 'finish': {
+        log.info(`Stretchly: requesting to ${cmd.command} the current break (requested by second instance)`)
+        const reference = breakPlanner?.scheduler?.reference
+        let windows
+        if (reference === 'finishMicrobreak') {
+          windows = microbreakWins
+        } else if (reference === 'finishBreak') {
+          windows = breakWins
+        }
+        const win = windows?.find(win =>
+          !win.isDestroyed() &&
+          (win.isVisible() || win.isMinimized()) &&
+          !win.webContents.getURL().includes('?blank=1'))
+        if (win) {
+          win.webContents.send(`request-${cmd.command}-break`)
+        } else {
+          log.info(`Stretchly: cannot ${cmd.command} break (source: cli): no active break window`)
+        }
+        break
+      }
+
       case 'pause': {
         log.info('Stretchly: pause Breaks (requested by second instance)')
         const duration = cmd.durationToMs(settings)
@@ -220,6 +245,10 @@ app.on('before-quit', (event) => {
     if (autostartManager) {
       autostartManager.disconnect()
     }
+    if (processWin && !processWin.isDestroyed()) {
+      processWin.destroy()
+      processWin = null
+    }
   }
 })
 
@@ -229,7 +258,6 @@ async function initialize (isAppStart = true) {
   }
   // TODO maybe we should not reinitialize but handle everything when we save new values for preferences
   log.info(`Stretchly: ${isAppStart ? '' : 're'}initializing...`)
-
   EventEmitter.setMaxListeners(200) // for watching Store changes
   if (!settings) {
     settings = new Store({
@@ -324,6 +352,12 @@ async function initialize (isAppStart = true) {
           } else {
             log.info('Stretchly: not migrating useMonochromeInvertedTrayIcon')
           }
+          if (store.get('appExclusionsCheckInterval') === 1000) {
+            store.set('appExclusionsCheckInterval', 2000)
+            log.info('Stretchly: migrating appExclusionsCheckInterval from 1000 to 2000')
+          } else {
+            log.info('Stretchly: not migrating appExclusionsCheckInterval')
+          }
         }
       },
       watch: true
@@ -406,6 +440,15 @@ async function initialize (isAppStart = true) {
       mkdirSync(imagesDir, { recursive: true })
     } catch (error) {
       log.error('Stretchly: error creating images directory', error)
+    }
+  }
+
+  const audioDir = join(app.getPath('userData'), 'audio')
+  if (!existsSync(audioDir)) {
+    try {
+      mkdirSync(audioDir, { recursive: true })
+    } catch (error) {
+      log.error('Stretchly: error creating audio directory', error)
     }
   }
   // Initialize portal early for Flatpak so it's ready when user opens preferences
@@ -513,7 +556,7 @@ function onResumeOrUnlock () {
     pausedForSuspendOrLock = false
     resumeBreaks(false)
   } else {
-    // corrrect the planner for the time spent in suspend
+    // correct the planner for the time spent in suspend
     breakPlanner.correctScheduler()
   }
   updateTray()
@@ -552,6 +595,7 @@ function trayIconUseDarkColors () {
   const source = settings.get('trayIconThemeSource')
   if (source === 'light') return false
   if (source === 'dark') return true
+  if (process.platform === 'win32') return nativeTheme.shouldUseDarkColorsForSystemIntegratedUI
   return nativeTheme.shouldUseDarkColors
 }
 
@@ -700,7 +744,7 @@ function createSyncPreferencesWindow () {
 function planVersionCheck (seconds = 1) {
   if (settings.get('disableAppUpdateFeatures')) return
   if (updateChecker) {
-    clearInterval(updateChecker)
+    clearTimeout(updateChecker)
     updateChecker = null
   }
   updateChecker = setTimeout(checkVersion, seconds * 1000)
@@ -888,7 +932,10 @@ function startMicrobreak () {
     ipcMain.on('mini-break-loaded', onMiniBreakLoaded)
 
     microbreakWinLocal.loadURL(isBlank ? modalPath + '?blank=1' : modalPath)
-    microbreakWinLocal.setVisibleOnAllWorkspaces(true)
+    // kiosk fullscreen owns its own Space; CanJoinAllSpaces would eject it (menu bar returns)
+    if (!(process.platform === 'darwin' && !showBreaksAsRegularWindows && settings.get('fullscreen'))) {
+      microbreakWinLocal.setVisibleOnAllWorkspaces(true)
+    }
     microbreakWinLocal.setAlwaysOnTop(!showBreaksAsRegularWindows, 'pop-up-menu')
     if (microbreakWinLocal) {
       microbreakWinLocal.on('close', (e) => {
@@ -1059,7 +1106,10 @@ function startBreak () {
     ipcMain.on('long-break-loaded', onLongBreakLoaded)
 
     breakWinLocal.loadURL(isBlank ? modalPath + '?blank=1' : modalPath)
-    breakWinLocal.setVisibleOnAllWorkspaces(true)
+    // kiosk fullscreen owns its own Space; CanJoinAllSpaces would eject it (menu bar returns)
+    if (!(process.platform === 'darwin' && !showBreaksAsRegularWindows && settings.get('fullscreen'))) {
+      breakWinLocal.setVisibleOnAllWorkspaces(true)
+    }
     breakWinLocal.setAlwaysOnTop(!showBreaksAsRegularWindows, 'pop-up-menu')
     if (breakWinLocal) {
       breakWinLocal.on('close', (e) => {
@@ -1554,18 +1604,18 @@ function showNotification (text) {
   )
 }
 
-ipcMain.on('postpone-mini-break', function (event) {
-  log.info('Stretchly: postpone button clicked during Mini break')
+ipcMain.on('postpone-mini-break', function (event, source = 'button') {
+  log.info(`Stretchly: postponement requested during Mini break (source: ${source})`)
   postponeMicrobreak()
 })
 
-ipcMain.on('postpone-long-break', function (event) {
-  log.info('Stretchly: postpone button clicked during Long break')
+ipcMain.on('postpone-long-break', function (event, source = 'button') {
+  log.info(`Stretchly: postponement requested during Long break (source: ${source})`)
   postponeBreak()
 })
 
-ipcMain.on('finish-mini-break', function (event, shouldPlaySound, manualAwaiting) {
-  log.info(`Stretchly: finish button clicked during Mini break (manualAwaiting: ${manualAwaiting})`)
+ipcMain.on('finish-mini-break', function (event, shouldPlaySound, manualAwaiting, source = 'button') {
+  log.info(`Stretchly: ${manualAwaiting ? 'finish' : 'skip'} requested during Mini break (source: ${source})`)
   if (manualAwaiting) {
     decreaseDanger(1)
   } else {
@@ -1574,8 +1624,8 @@ ipcMain.on('finish-mini-break', function (event, shouldPlaySound, manualAwaiting
   finishMicrobreak(shouldPlaySound)
 })
 
-ipcMain.on('finish-long-break', function (event, shouldPlaySound, manualAwaiting) {
-  log.info(`Stretchly: finish button clicked during Long break (manualAwaiting: ${manualAwaiting})`)
+ipcMain.on('finish-long-break', function (event, shouldPlaySound, manualAwaiting, source = 'button') {
+  log.info(`Stretchly: ${manualAwaiting ? 'finish' : 'skip'} requested during Long break (source: ${source})`)
   if (manualAwaiting) {
     decreaseDanger(2)
   } else {
@@ -1672,10 +1722,12 @@ ipcMain.handle('show-debug', (event) => {
   let settingsFile = settings.path
   let logsFile = log.transports.file.getFile().path
   let imagesFolder = join(app.getPath('userData'), 'images')
+  let audioFolder = join(app.getPath('userData'), 'audio')
   if (insideWindowsStore()) {
     settingsFile = settingsFile.replace('Roaming', 'Local\\Packages\\33881JanHovancik.stretchly_24fg4m0zq65je\\LocalCache\\Roaming')
     logsFile = logsFile.replace('Roaming', 'Local\\Packages\\33881JanHovancik.stretchly_24fg4m0zq65je\\LocalCache\\Roaming')
     imagesFolder = imagesFolder.replace('Roaming', 'Local\\Packages\\33881JanHovancik.stretchly_24fg4m0zq65je\\LocalCache\\Roaming')
+    audioFolder = audioFolder.replace('Roaming', 'Local\\Packages\\33881JanHovancik.stretchly_24fg4m0zq65je\\LocalCache\\Roaming')
   }
   return [
     reference,
@@ -1685,7 +1737,8 @@ ipcMain.handle('show-debug', (event) => {
     settingsFile,
     logsFile,
     doNotDisturb,
-    imagesFolder
+    imagesFolder,
+    audioFolder
   ]
 })
 
@@ -1791,6 +1844,11 @@ ipcMain.handle('get-version', (event) => {
 ipcMain.handle('resolve-local-image', (event, filename) => {
   const imagesPath = join(app.getPath('userData'), 'images')
   return resolveLocalImage(imagesPath, filename)
+})
+
+ipcMain.handle('resolve-local-audio', (event, filename) => {
+  const audioPath = join(app.getPath('userData'), 'audio')
+  return resolveLocalAudio(audioPath, filename)
 })
 
 ipcMain.handle('select-folder', async (event) => {

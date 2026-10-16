@@ -26,7 +26,7 @@ The latest official **installers** and **portable versions** for macOS, Windows 
 
 ### macOS
 
-Requires macOS Monterey (12) or later.
+Requires macOS Ventura (13) or later.
 
 It is recommended to install *Stretchly* with [Homebrew tap](https://github.com/hovancik/homebrew-stretchly) by running the following command.
 See [Application Signing](#application-signing) for details.
@@ -54,7 +54,7 @@ If you're using [Alfred](https://www.alfredapp.com) or [Raycast](https://www.ray
 
 #### Application Signing
 
-*Stretchly* is not signed (due to its costs and me not owning supported Apple device) so you will need to use a workaround for the first run. The workaround
+*Stretchly* is only ad-hoc signed (due to its costs and me not owning supported Apple device) so you will need to use a workaround for the first run. The workaround
 depends on if you're running an Intel or Apple Silicon chip.
 
 - **Intel Chips**: [Open a Mac app from an unidentified developer](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac).
@@ -62,13 +62,6 @@ depends on if you're running an Intel or Apple Silicon chip.
 
 ```bash
 sudo xattr -r -d com.apple.quarantine /Applications/Stretchly.app
-```
-
-If you install via [Homebrew](https://brew.sh), you can use the `--no-quarantine` flag to automatically apply the correct
-workaround.
-
-```bash
-brew install --cask --no-quarantine hovancik/stretchly/stretchly
 ```
 
 Not sure which chip your computer has? [Here's how to tell](https://support.apple.com/en-us/HT211814).
@@ -168,6 +161,8 @@ Clicking the *Stretchly* icon in your tray area will display the current status 
 ### Interact with stretchly from command line
 
 When a Stretchly instance is running, the `stretchly` command can be use to interact with it from the command line.
+
+The regular Windows installer adds `stretchly` to PATH, so commands can be run from a new terminal without specifying the full executable path.
 
 Type `stretchly help` to get a list of all commands and options available as well as some examples.
 
@@ -291,16 +286,31 @@ In the preferences file, you can edit `microbreakPostpone` and `breakPostpone` t
 In the preferences file, set `notifyNewVersion: false,` to disable new version notification.
 
 #### Sounds at the start of breaks [![Contributor Preferences](https://img.shields.io/badge/Contributor_Preferences-✔-success)](#contributor-preferences)
-To configure the sound when a break starts, set for example `"miniBreakStartSound": "crystal-glass"`. Same for `longBreakStartSound`. Accepted values: `silence`, `crystal-glass`, `wind-chime`, `tic-toc`, `reverie`. Setting the value to `silence` means no sound will be played.
+To configure the sound when a break starts, set for example `"miniBreakStartSound": "crystal-glass"`. Same for `longBreakStartSound`. Built-in values: `silence`, `crystal-glass`, `wind-chime`, `tic-toc`, `reverie`. Setting the value to `silence` means no sound will be played.
 
 #### Different sound for Mini and Long breaks
 To play different sound for Mini breaks, set `miniBreakAudio` to desired value (`crystal-glass`, `silence`, `tic-toc`, `wind-chime`).
+
+#### Custom sounds
+
+To use your own sounds, put WAV files in the `audio` folder inside Stretchly's user data directory. Open it from Preferences → About by pressing `Ctrl/Cmd + D` and clicking `audioFolder`.
+
+To replace a sound from Preferences, name your file `crystal-glass.wav`, `wind-chime.wav`, `tic-toc.wav`, or `reverie.wav`. For example, save it as `crystal-glass.wav` and select Crystal Glass. Stretchly will use your file whenever that sound plays, including previews. Delete the file to get the original sound back.
+
+You can also use your own filename, for example `my-sound.wav`. In the preferences file, set `"miniBreakAudio": "my-sound"` or `"longBreakAudio": "my-sound"`. The same works for `miniBreakStartSound` and `longBreakStartSound`. Leave out `.wav` in these settings. These sounds won't appear as new choices in Preferences. If you delete the file, change the setting back to a built-in sound.
+
+Filenames can contain letters (`a-z`, `A-Z`), numbers, dots, underscores, and hyphens. Only `.wav` files are supported. The `silence` option always stays silent.
 
 #### Different color theme for Mini and Long breaks
 To have different theme for Mini breaks, set `miniBreakColor` to desired value, ie `#123456`.
 
 #### Natural breaks inactivity time [![Contributor Preferences](https://img.shields.io/badge/Contributor_Preferences-✔-success)](#contributor-preferences)
 In the preferences file, set `naturalBreaksInactivityResetTime` to your preferred value (in milliseconds greater than than 20000ms). This is an idle time length, after which *Stretchly* breaks will be paused until the user resumes activity.
+
+You can also set `naturalBreaksCheckInterval` in milliseconds: how often idle time is checked. A higher number means lower CPU and energy usage, but slightly less responsive detection. Default value is `2000` which is 2 seconds.
+
+#### Do Not Disturb check interval
+In the preferences file, set `monitorDndCheckInterval` in milliseconds: how often Do Not Disturb status is checked. A higher number means lower CPU and energy usage, but slightly less responsive detection. On macOS and Linux this check can be relatively expensive, so increasing it can noticeably lower energy usage. Default value is `2000` which is 2 seconds.
 
 #### Volume for break sounds [![Contributor Preferences](https://img.shields.io/badge/Contributor_Preferences-✔-success)](#contributor-preferences)
 In the preferences file, set `volume` to your preferred value. Default value is `1`, which is 100% volume. Set it, for example, to `0.61` for 61% volume. This applies to both start and end break sounds.
@@ -357,7 +367,7 @@ If you'd like to disable the shortcut, set value to empty string `""`. That's th
 #### Appearance [![Contributor Preferences](https://img.shields.io/badge/Contributor_Preferences-✔-success)](#contributor-preferences)
 In the preferences file, change `themeSource: 'system'` to either `'light'` or `'dark'` to always use the specified theme.
 
-In the preferences file, change `trayIconThemeSource: 'system'` to either `'light'` or `'dark'` to force the tray icon's light or dark variant instead of following the system theme. `'system'` follows the same light/dark theme as the rest of Stretchly (the OS theme, or whatever `themeSource` is set to). On macOS this affects colour icons only; monochrome icons are tinted by the system.
+In the preferences file, change `trayIconThemeSource: 'system'` to either `'light'` or `'dark'` to force the tray icon's light or dark variant instead of following the system theme. On Windows, `'system'` follows the Windows mode used by the taskbar. On macOS and Linux, it follows the same light/dark theme as the rest of Stretchly (the OS theme, or whatever `themeSource` is set to). On macOS this affects colour icons only; monochrome icons are tinted by the system.
 
 #### Break window color
 In the preferences file, change `mainColor` to whatever color you like.
@@ -454,7 +464,7 @@ You can specify multiple values, (as `appExclusions` is array) and Stretchly wil
 
 For Windows, note that paths not specified. This is because on Windows, the API we're using only checks the names of processes being run, which in the vast majority of cases is "process_name.exe". If you try to specify paths, it will not work.
 
-You can also specify `appExclusionsCheckInterval` in milliseconds: lower number means more often checks, but also higher CPU usage. Default value is `1000` which is 1 second.
+You can also specify `appExclusionsCheckInterval` in milliseconds: lower number means more often checks, but also higher CPU usage. Default value is `2000` which is 2 seconds.
 
 #### Pause breaks on Suspend/Lock ![Not Reliable](https://img.shields.io/badge/Not_Reliable-β-yellow)
 If you don't want to reset breaks once system is back from Suspend/Lock, set `pauseForSuspendOrLock` to `false`.
@@ -567,6 +577,8 @@ Feel free to join in the [development](https://github.com/hovancik/stretchly/blo
 
 Now you can clone the repo with `git clone https://github.com/hovancik/stretchly.git`. Change to the new created directory and run `npm i` to install node packages needed. If your system is running Python 3.12 and newer, you also need to install `setuptools`, for example with `pip install setuptools`, as `distutils` have been [deprecated](https://docs.python.org/3/library/distutils.html).
 
+Alternatively, open the repo in the included [Dev Container](https://containers.dev/) (`.devcontainer`). It is a minimal, hardened environment (non-root user, all Linux capabilities dropped, no forwarded ports) for editing code and running tests, which makes it a good fit for LLM coding agents. It is not meant for running the Stretchly GUI.
+
 Read on.
 
 ### Debugging
@@ -593,9 +605,9 @@ You can help to translate Stretchly on [Weblate](https://hosted.weblate.org/enga
 
 
 ## Known issues
-- Autostart does not work in Flathub app ([#1517](https://github.com/hovancik/stretchly/issues/1517))
-- idle time detection doesn't work on Wayland ([electron/electron#27912](https://github.com/electron/electron/issues/27912))
+- On KDE Wayland, global shortcuts can appear configured but fail to work; see [electron/electron#42573](https://github.com/electron/electron/issues/42573). Use the tray menu and break controls, or quit Stretchly and restart with `stretchly --ozone-platform=x11`.
 - Windows Store build's autostart is not working, so was disabled. To use autostart, install Stretchly with the [regular installer](https://github.com/hovancik/stretchly/releases), or create a shortcut to Stretchly from `shell:AppsFolder` (Win+R) and move it to the `shell:startup` folder (Win+R).
+- The Snap build may fail to start on native Wayland. Start it with the X11 backend (`stretchly --ozone-platform=x11`) as a workaround. See [#1693](https://github.com/hovancik/stretchly/issues/1693).
 - Wayland multi-display window placement issue puts all break windows on one monitor; start with X11 backend (`stretchly --ozone-platform=x11`) if needed. See [electron/electron#48749](https://github.com/electron/electron/issues/48749).
 
 ### MacOS
@@ -679,6 +691,7 @@ You can help to translate Stretchly on [Weblate](https://hosted.weblate.org/enga
 - Philip Wintersteiner, [@Wikiwix](https://github.com/wikiwix)
 - Steven Cai, [@stevencaiOR](https://github.com/stevencaiOR)
 - Zhekai Jiang, [@zhekai-jiang](https://github.com/zhekai-jiang)
+- Bence Kovács, [@githappens](https://github.com/githappens)
 
 Also see Github's list of [contributors](https://github.com/hovancik/stretchly/graphs/contributors).
 

@@ -6,19 +6,56 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- CLI commands to postpone, skip and finish the current break
+- advanced preferences for custom break sounds
+
+### Fixed
+- fix debug file and folder links when paths contain HTML special characters
+- fix custom break images when the user data path contains URL special characters
+- fix snap startup crash
+- improve Linux desktop integration
+- time-to-break tray icon no longer requests a missing number icon when more than 99 minutes remain
+
+### Changed
+- macOS Ventura (13) or later is now required
+- macOS app bundles are now ad-hoc signed
+- updated many translations
+
+## [1.22.1] - 2026-08-13
+### Fixed
+- tray icon system theme now follows the Windows mode used by the taskbar instead of the default app mode
+- Do Not Disturb no longer stays active when Windows Focus Assist is unsupported
+- improve LXQt DND detection
+- snap build
+
+### Changed
+- updated many translations
+
+## [1.22.0] - 2026-07-17
+### Added
+- Windows installer now adds `stretchly` to PATH so CLI commands (e.g. `stretchly pause`) can be run from any terminal without specifying the full executable path
 - advanced option `breakContentScreen` to show break countdown/idea only on the primary, cursor, or a specific screen while other screens stay blanked
 - advanced option `trayIconThemeSource` (`system`, `light`, or `dark`) to set the tray icon's light or dark variant
+- advanced options `monitorDndCheckInterval` and `naturalBreaksCheckInterval` to tune how often Do Not Disturb and idle time are checked
 
 ### Changed
 - tray icon now follows the light/dark theme automatically; the manual "Inverted Monochrome" option was removed
 - improved tray icons
+- reduced background polling for Do Not Disturb, natural breaks, and app exclusions to 2 seconds to lower energy usage (`appExclusionsCheckInterval` default raised from `1000` to `2000`)
+- reduced CPU and energy usage during breaks
+- Do Not Disturb, natural breaks, and app exclusion monitoring are stopped while breaks are paused, to lower energy usage
+- disable new end break shortcut registrations on native Wayland, where they could remain active after breaks and block the shortcut in other apps
 
 ### Fixed
+- fix Windows notifications not using Stretchly's name and icon when started via the `stretchly` command
 - fix crashes on system unlock
 - fix window icon turning monochrome with the monochrome tray icon setting
 - fix custom title for Mini break from command line
 - fix repeated crash windows after an error
 - improve double-click error prevention in breaks
+- fix fullscreen breaks dropping out of their Space after a few seconds on macOS
+- fix app exclusion state not updating in some cases
+- fix text selection on break screens allowing escape via the macOS force-click dictionary
 
 ## [1.21.0] - 2026-04-25
 ### Added
@@ -869,7 +906,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - resume/pause functionality for reminder
 - scripts for creating installers for OS X, Windows, Linux
 
-[Unreleased]: https://github.com/hovancik/stretchly/compare/v1.21.0...HEAD
+[Unreleased]: https://github.com/hovancik/stretchly/compare/v1.22.1...HEAD
+[1.22.1]: https://github.com/hovancik/stretchly/compare/v1.22.0...v1.22.1
+[1.22.0]: https://github.com/hovancik/stretchly/compare/v1.21.0...v1.22.0
 [1.21.0]: https://github.com/hovancik/stretchly/compare/v1.20.0...v1.21.0
 [1.20.0]: https://github.com/hovancik/stretchly/compare/v1.19.0...v1.20.0
 [1.19.0]: https://github.com/hovancik/stretchly/compare/v1.18.1...v1.19.0

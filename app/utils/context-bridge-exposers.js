@@ -9,6 +9,7 @@ function exposeElectronApi () {
     openExternal: (path) => shell.openExternal(path),
     openPath: (path) => shell.openPath(path),
     resolveLocalImage: (filename) => ipcRenderer.invoke('resolve-local-image', filename),
+    resolveLocalAudio: (filename) => ipcRenderer.invoke('resolve-local-audio', filename),
     selectFolder: () => ipcRenderer.invoke('select-folder')
   })
 }
@@ -30,8 +31,11 @@ function exposeI18next () {
 function exposeBreaks (type) {
   contextBridge.exposeInMainWorld('breaks', {
     sendBreakData: () => ipcRenderer.invoke(`send-${type}-break-data`),
-    finishBreak: (manualAwaiting) => ipcRenderer.send(`finish-${type}-break`, false, manualAwaiting),
-    postponeBreak: () => ipcRenderer.send(`postpone-${type}-break`),
+    finishBreak: (manualAwaiting, source) => ipcRenderer.send(`finish-${type}-break`, false, manualAwaiting, source),
+    postponeBreak: (source) => ipcRenderer.send(`postpone-${type}-break`, source),
+    onPostponeRequest: (callback) => ipcRenderer.on('request-postpone-break', () => callback()),
+    onSkipRequest: (callback) => ipcRenderer.on('request-skip-break', () => callback()),
+    onFinishRequest: (callback) => ipcRenderer.on('request-finish-break', () => callback()),
     signalLoaded: () => ipcRenderer.send(`${type}-break-loaded`),
     onEnterManualAwait: (callback) => ipcRenderer.on('enter-manual-await', (_e, which, mode) => callback(which, mode)),
     sanitizeIdea: (value) => sanitizeIdea(value)

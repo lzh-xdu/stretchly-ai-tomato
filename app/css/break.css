@@ -3,6 +3,16 @@ body {
   height: 100%;
 }
 
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+::selection {
+  background: transparent;
+}
+
 body {
   overflow: hidden;
 }
