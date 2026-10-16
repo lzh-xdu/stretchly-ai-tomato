@@ -417,7 +417,7 @@ async function initialize (isAppStart = true) {
 
   displayManager = new DisplayManager(settings)
 
-  startI18next()
+  await startI18next()
   startProcessWin()
   createWelcomeWindow()
   nativeTheme.themeSource = settings.get('themeSource')
@@ -459,21 +459,24 @@ async function initialize (isAppStart = true) {
 }
 
 function startI18next () {
-  i18next
-    .use(Backend)
-    .init({
-      lng: settings.get('language'),
-      fallbackLng: 'en',
-      debug: !app.isPackaged,
-      backend: {
-        loadPath: join(__dirname, '/locales/{{lng}}.json'),
-        jsonIndent: 2
-      }
-    }, function (err, t) {
-      if (err) {
-        log.error(err.stack)
-      }
-    })
+  return new Promise((resolve) => {
+    i18next
+      .use(Backend)
+      .init({
+        lng: settings.get('language'),
+        fallbackLng: 'en',
+        debug: !app.isPackaged,
+        backend: {
+          loadPath: join(__dirname, '/locales/{{lng}}.json'),
+          jsonIndent: 2
+        }
+      }, function (err, t) {
+        if (err) {
+          log.error(err.stack)
+        }
+        resolve()
+      })
+  })
 }
 
 i18next.on('languageChanged', () => {
@@ -535,8 +538,8 @@ function closeWindows (windowArray) {
 
     window.hide()
     if (windowArray[0] === window) {
-      ipcMain.removeHandler('send-long-break-data')
-      ipcMain.removeHandler('send-mini-break-data')
+      try { ipcMain.removeHandler('send-long-break-data') } catch (_) {}
+      try { ipcMain.removeHandler('send-mini-break-data') } catch (_) {}
     }
 
     // Use destroy() for immediate, guaranteed cleanup on all platforms
@@ -1180,11 +1183,11 @@ function postponeBreak () {
 function skipToMicrobreak (delay) {
   if (microbreakWins) {
     increaseDanger(1)
-    microbreakWins = breakComplete(false, microbreakWins)
+    microbreakWins = breakComplete(false, microbreakWins, 'mini')
   }
   if (breakWins) {
     increaseDanger(2)
-    breakWins = breakComplete(false, breakWins)
+    breakWins = breakComplete(false, breakWins, 'long')
   }
   if (delay) {
     breakPlanner.skipToMicrobreak(delay)
@@ -1199,11 +1202,11 @@ function skipToMicrobreak (delay) {
 function skipToBreak (delay) {
   if (microbreakWins) {
     increaseDanger(1)
-    microbreakWins = breakComplete(false, microbreakWins)
+    microbreakWins = breakComplete(false, microbreakWins, 'mini')
   }
   if (breakWins) {
     increaseDanger(2)
-    breakWins = breakComplete(false, breakWins)
+    breakWins = breakComplete(false, breakWins, 'long')
   }
   if (delay) {
     breakPlanner.skipToBreak(delay)
